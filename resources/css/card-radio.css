@@ -1,0 +1,67 @@
+/* Make the label.card position-relative so we can absolutely
+      position the radio in its corner */
+.card-radio {
+    position: relative;
+    cursor: pointer;
+    padding-left: 2rem; /* Space for the radio */
+    transition: border-color 0.2s;
+}
+
+.card-radio .card-body {
+    padding-left: 0;
+}
+
+/* Hide the native radio, but keep it focusable/accessibile */
+.card-radio input[type="radio"] {
+    opacity: 0;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Create a custom radio indicator */
+.card-radio .custom-radio {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(-50%);
+    border: 1px solid rgb(190, 197, 204);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* The inner dot (hidden by default) */
+.card-radio .custom-radio::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: rgb(90, 141, 238);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* When the hidden radio is checked… */
+.card-radio input[type="radio"]:checked + .custom-radio {
+    border-color: rgb(90, 141, 238);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.card-radio input[type="radio"]:checked + .custom-radio::after {
+    opacity: 1;
+}
+
+.card-radio:has(input[type="radio"]:checked) {
+    border-color: rgb(90, 141, 238);
+}

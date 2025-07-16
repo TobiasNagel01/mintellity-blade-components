@@ -190,3 +190,19 @@ Requires [datepicker.js](../resources/js/datepicker.js) and [datepicker.css](../
 <x-mint::form.date
     name="name"/>
 ```
+
+## Card-Radio
+
+```bladehtml
+
+<div class="row g-3">
+    <div class="col-sm-6 col-md-4">
+        <x-mint::form.card-radio
+            name="icon"
+            value="icon-1"
+            :checked="true">
+            Mein Icon
+        </x-mint::form.card-radio>
+    </div>
+</div>
+```
