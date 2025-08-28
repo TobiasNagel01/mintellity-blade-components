@@ -41,7 +41,7 @@
                     id="{{ $id ?? $name }}"
                     name="{{$name}}"
                     {{ $inputAttributes->class(["form-control", "dynamic-height", "is-invalid" => $errors->has($name)])->except(['id', 'name', 'required'])->merge(['rows' => '3']) }}
-                >@isset($value){{ $value }}@endisset</textarea>
+                >{{ isset($value) ? $value : '' }}</textarea>
 
                 @isset($append)
                     {{ $append }}
